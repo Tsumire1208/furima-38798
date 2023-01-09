@@ -15,39 +15,24 @@
 
 ### Association
 - has_many :items
-- has_many :comments
-- has_one :order
-
-
-## comments テーブル
-
-| Column             | Type       | Options                       |
-| ------------------ | ---------- | ----------------------------- |
-| user               | references | null: false foreign_key: true |
-| item               | references | null: false foreign_key: true |
-| comment            | text       | null: false                   |
-
-### Association
-- belongs_to :item
-- belongs_to :user
+- has_many :orders
 
 
 ## items テーブル
 
-| Column                | Type       | Options                       |
-| --------------------- | ---------- | ----------------------------- |
-| name                  | string     | null: false                   |
-| item_description      | text       | null: false                   |
-| category_id           | integer    | null: false                   |
-| condition_id          | integer    | null: false                   |
-| freight_id            | integer    | null: false                   |
-| ship_from_location_id | integer    | null: false                   |
-| delivery_time_id      | integer    | null: false                   |
-| price                 | integer    | null: false                   |
-| user                  | references | null: false foreign_key: true |
+| Column           | Type       | Options                       |
+| ---------------- | ---------- | ----------------------------- |
+| name             | string     | null: false                   |
+| item_description | text       | null: false                   |
+| category_id      | integer    | null: false                   |
+| condition_id     | integer    | null: false                   |
+| freight_id       | integer    | null: false                   |
+| prefectures_id   | integer    | null: false                   |
+| delivery_time_id | integer    | null: false                   |
+| price            | integer    | null: false                   |
+| user             | references | null: false foreign_key: true |
 
 ### Association
-- has_many   :comments
 - belongs_to :user
 - has_one :order
 
@@ -67,15 +52,15 @@
 
 ## buyers テーブル
 
-| Column              | Type       | Options                       |
-| ------------------- | ---------- | ----------------------------- |
-| postal_code         | integer    | null: false                   |
-| prefectures         | string     | null: false                   |
-| municipalities      | string     | null: false                   |
-| address             | string     | null: false                   |
-| building            | string     |                               |
-| phone               | integer    | null: false                   |
-| order               | references | null: false foreign_key: true |
+| Column         | Type       | Options                       |
+| -------------- | ---------- | ----------------------------- |
+| postal_code    | string     | null: false                   |
+| prefectures_id | integer    | null: false                   |
+| municipalities | string     | null: false                   |
+| address        | string     | null: false                   |
+| building       | string     |                               |
+| phone          | string     | null: false                   |
+| order          | references | null: false foreign_key: true |
 
 ### Association
 - belongs_to :order
