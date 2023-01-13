@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
+  has_one_attached :image
 
   validates :name,             null: false
   validates :item_description, null: false
@@ -9,5 +10,5 @@ class Item < ApplicationRecord
   validates :prefecture_id,    null: false
   validates :delivery_time_id, null: false
   validates :price,            null: false
-  
+  validates :image,            null: false
 end

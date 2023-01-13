@@ -72,3 +72,7 @@ gem 'factory_bot_rails'
 gem 'faker'
 
 gem "gimei"
+
+gem 'mini_magick'
+
+gem 'image_processing', '~> 1.2'
