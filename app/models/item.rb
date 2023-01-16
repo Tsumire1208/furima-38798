@@ -1,14 +1,24 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
   has_one_attached :image
 
-  validates :name,             null: false
-  validates :item_description, null: false
-  validates :category_id,      null: false
-  validates :condition_id,     null: false
-  validates :freight_id,       null: false
-  validates :prefecture_id,    null: false
-  validates :delivery_time_id, null: false
-  validates :price,            null: false
-  validates :image,            null: false
+  belongs_to :category
+  belongs_to :condition
+  belongs_to :freight
+  belongs_to :prefecture
+  belongs_to :delivery_time
+
+
+  validates :name,             presence: true
+  validates :item_description, presence: true
+  validates :category_id,      presence: true, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :condition_id,     presence: true, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :freight_id,       presence: true, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :prefecture_id,    presence: true, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :delivery_time_id, presence: true, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :price,            presence: true
+  validates :image,            presence: true
+  validates :user_id,          presence: true
+
 end
