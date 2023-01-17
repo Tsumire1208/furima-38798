@@ -32,33 +32,33 @@ RSpec.describe Item, type: :model do
       end
 
       it 'category_idが---では登録できない' do
-        @item.category_id = ''
+        @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category is not a number")
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
 
       it 'condition_idが---では登録できない' do
-        @item.condition_id = ''
+        @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition is not a number")
+        expect(@item.errors.full_messages).to include("Condition must be other than 1")
       end
 
       it 'freight_idが---では登録できない' do
-        @item.freight_id = ''
+        @item.freight_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Freight is not a number")
+        expect(@item.errors.full_messages).to include("Freight must be other than 1")
       end
 
       it 'prefecture_idが---では登録できない' do
-        @item.prefecture_id = ''
+        @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture is not a number")
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
       end
 
       it 'delivery_time_idが---では登録できない' do
-        @item.delivery_time_id = ''
+        @item.delivery_time_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery time is not a number")
+        expect(@item.errors.full_messages).to include("Delivery time must be other than 1")
       end
 
       it 'priceが空欄では登録できない' do
@@ -70,7 +70,6 @@ RSpec.describe Item, type: :model do
       it 'priceが299円以下では登録できない' do
         @item.price = '299'
         @item.valid?
-        binding.pry
         expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
 
@@ -78,6 +77,19 @@ RSpec.describe Item, type: :model do
         @item.price = '10000000'
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+      end
+
+      it 'priceに半角数字以外が含まれている場合は出品できない' do
+        @item.price = '１００００'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
+
+      it 'ユーザー情報がない場合は登録できない' do
+        @item.user = nil
+        @item.valid?
+        binding.pry
+        expect(@item.errors.full_messages).to include("'User must exist'")
       end
     end
   end
