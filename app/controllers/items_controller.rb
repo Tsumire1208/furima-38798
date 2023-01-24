@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
       @item.destroy
       redirect_to root_path
     else
-      redirect_to  item_path(item_params)
+      redirect_to item_path(item_params)
     end
   end
 
