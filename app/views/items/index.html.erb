@@ -134,13 +134,14 @@
         <%= link_to item_path(item) do %>
           <div class='item-img-content'>
           <%= image_tag item.image.variant(resize: '300x300'), class: 'message-image' if item.image.attached? %>
-        <% end %>
 
             <%# 商品が売れていればsold outを表示しましょう %>
-            <%# <div class='sold-out'> %>
-            <%# </div> %>
-              <%# <span>Sold Out!!</span>
-            </div> %>
+            <% if item.order.present? %>
+              <div class='sold-out'>
+              <span>Sold Out!!</span>
+              </div>
+            <% end %>
+          <% end %>
             <%# //商品が売れていればsold outを表示しましょう %>
 
           </div>

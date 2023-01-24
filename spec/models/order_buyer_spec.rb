@@ -80,6 +80,12 @@ RSpec.describe Order, type: :model do
         @order_buyer.valid?
         expect(@order_buyer.errors.full_messages).to include("Item can't be blank")
       end
+
+      it "tokenが空では登録できないこと" do
+        @order_buyer.token = nil
+        @order_buyer.valid?
+        expect(@order_buyer.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end

@@ -7,5 +7,6 @@ FactoryBot.define do
     address { Gimei.city.kanji }
     building { Faker::Address.street_name }
     phone { Faker::Number.between(from: 1000000000, to: 99999999999) }
+    token { "tok_" + Faker::Internet.password(min_length: 28, max_length:28) }
   end
 end
