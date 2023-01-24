@@ -8,9 +8,9 @@ const pay = () => {
   const expiryElement = elements.create('cardExpiry')
 
   //入力欄をDOM上に表示
-  numberElement.mount('#number')
-  cvcElement.mount('#cvc') 
-  expiryElement.mount('#exp-date')
+  numberElement.mount('#card-number')
+  cvcElement.mount('#card-cvc') 
+  expiryElement.mount('#card-exp')
 
  //フォームの要素を取得
  const form = document.getElementById("charge-form");
