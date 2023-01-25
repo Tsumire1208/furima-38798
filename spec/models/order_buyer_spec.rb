@@ -12,6 +12,10 @@ RSpec.describe Order, type: :model do
       it 'postal_code, prefecture_id, municipalities, address, phone, user_id, item_idが存在すれば登録できる' do
         expect(@order_buyer).to be_valid
       end
+      it '建物名が空でも登録できること' do
+        @order_buyer.building = ''
+        expect(@order_buyer).to be_valid
+      end
     end
 
     context '購入者情報登録ができないとき' do
