@@ -89,6 +89,10 @@
   margin-bottom: 15px;
 }
 
+.preview-size{
+  height: auto;
+  width: 50vh;
+}
 /* /商品画像 */
 
 /* 商品名と商品説明 */
