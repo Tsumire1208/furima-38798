@@ -18,3 +18,12 @@ ja:
         prefecture_id: 都道府県
         delivery_time_id: 発送までの日数
         price: 価格
+  activemodel:
+    attributes:
+      order_buyer:
+        postal_code: 郵便番号
+        prefecture_id: 都道府県
+        municipalities: 市区町村
+        address: 番地
+        phone: 電話番号
+        token: クレジットカード情報
