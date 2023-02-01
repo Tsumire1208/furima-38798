@@ -11,18 +11,17 @@
         <div class="other-images">
           <% @item.images[1..-1].each do |image| %>
             <div class="other-image">
-              <%= image_tag image %>
+              <%= image_tag image, class:"preview-image"  %>
             </div>
           <%end%>
         </div>
-        
-    <% if @item.order.present? %>
-      <div class="sold-out">
-        <span>Sold Out!!</span>
-      </div>
-    <% end %>
-
+        <% if @item.order.present? %>
+          <div class="sold-out">
+            <span>Sold Out!!</span>
+          </div>
+        <% end %>
     </div>
+    
     <div class="item-price-box">
       <span class="item-price">
       ¥<%= @item.price %>

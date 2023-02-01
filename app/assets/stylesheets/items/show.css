@@ -26,11 +26,19 @@
 }
 
 .item-box-img {
-  height: 50vh;
-  width: 60vw;
-  min-height: 500px;
+  height: auto;
+  width: 80vw;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
+}
+
+.preview-image {
+  height: auto;
+  width: 20vw;
+  object-fit: contain;
+  display: flex;
+  justify-content: space-around;
+
 }
 
 .other-images {

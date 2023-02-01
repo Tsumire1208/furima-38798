@@ -1,9 +1,11 @@
 #previews {
   display: flex;
+
 }
 
 .preview{
   margin-right: 30px;
+
 }
 
 .image-delete-button {
