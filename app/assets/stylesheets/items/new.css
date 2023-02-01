@@ -91,8 +91,7 @@
 
 .preview-size{
   height: auto;
-  width: 20vw;
-  object-fit: contain;
+  width: 50vh;
 }
 /* /商品画像 */
 
